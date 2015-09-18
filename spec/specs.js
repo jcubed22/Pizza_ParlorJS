@@ -7,7 +7,8 @@ describe('Pizza', function() {
     });
 
     it("adds the cost method to all pizzas", function() {
-        var testPizza = new Pizza(12, ["pepperoni", "sausage"], 2)
-        expect(testPizza.cost()).to.equal(25);
+        var testPizza = new Pizza(12, ["pepperoni", "sausage"], 2);
+        testPizza.price();
+        expect(testPizza.cost).to.equal(25);
     });
 });
