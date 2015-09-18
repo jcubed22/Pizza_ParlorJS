@@ -18,4 +18,11 @@ describe('Order', function() {
         var testOrder = new Order();
         expect(testOrder).to.be.an('object');
     });
+
+    it("adds pizza objects to an Order", function() {
+        var testOrder = new Order();
+        var testPizza = new Pizza(10, ["pepperoni"], 1);
+        testOrder.addPizza();
+        expect(testOrder.pizzas).to.be.an('array');
+    });
 });
