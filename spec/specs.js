@@ -24,20 +24,22 @@ describe('Order', function() {
         var testPizza = new Pizza(10, ["pepperoni"], 1);
         var testPizza2 = new Pizza(12, ["pepperoni", "sausage"], 2);
         testOrder.pizzas.push(testPizza, testPizza2);
-        expect(testOrder.orderTotal()).to.equal(35);
+        testOrder.orderTotal();
+        expect(testOrder.total).to.equal(35);
     });
 
     it("adds orderTotal method to all Order objects", function() {
         var testOrder = new Order();
         var testPizza = new Pizza(12, ["pepperoni", "sausage", "mushroom", "olives", "bacon"], 3);
         testOrder.pizzas.push(testPizza);
-        expect(testOrder.orderTotal()).to.equal(42);
+        testOrder.orderTotal();
+        expect(testOrder.total).to.equal(42);
     });
 
     it("adds a pizza to the order", function() {
         var testPizza = new Pizza(12, ["pepperoni", "sausage"], 2);
         var testOrder = new Order();
-        testOrder.addPizza();
+        testOrder.addPizza(testPizza);
         expect(testOrder.pizzas[0]).to.eql(testPizza);
     });
 });
