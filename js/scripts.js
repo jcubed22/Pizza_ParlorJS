@@ -32,3 +32,28 @@ Order.prototype.addPizza = function(pizza) {
     this.pizzas.push(pizza);
     this.orderTotal();
 }
+
+$(document).ready(function() {
+    var requiredCheckboxes = $(':checkbox[required]');
+
+    requiredCheckboxes.change(function(){
+        if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+        }
+        else {
+            requiredCheckboxes.attr('required', 'required');
+        }
+    });
+
+    $("form#new-pizza").submit(function(event) {
+        event.preventDefault();
+        var size = $("select#size").val();
+        var toppings = [];
+        $(':checkbox:checked').each(function(i){
+          toppings[i] = $(this).val();
+        });
+        var quantity = $("select#qty").val();
+    });
+
+
+});
