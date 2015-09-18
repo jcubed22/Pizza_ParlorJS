@@ -25,7 +25,7 @@ Order.prototype.orderTotal = function() {
     for (var pizza in this.pizzas) {
         orderTotal += this.pizzas[pizza].price();
     }
-    this.total = orderTotal;
+    this.total = orderTotal.toFixed(2);
 }
 
 Order.prototype.addPizza = function(pizza) {
@@ -66,8 +66,9 @@ $(document).ready(function() {
 
         $("#show-order").show();
         $(".pizza").text(newPizza.size + '" ' + newPizza.toppings.length + " topping x " + newPizza.quantity);
-        $(".total").text("$" + order.total);
+        $(".total").text("$" +  order.total);
 
+        /* Resets form when */
         $("form#new-pizza").trigger("reset");
     });
 });
