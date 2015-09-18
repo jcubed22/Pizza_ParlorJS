@@ -25,5 +25,6 @@ Order.prototype.orderTotal = function() {
     for (var pizza in this.pizzas) {
         orderTotal += this.pizzas[pizza].price();
     }
+    this.total = orderTotal;
     return orderTotal;
 }
