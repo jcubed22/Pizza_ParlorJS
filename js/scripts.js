@@ -13,3 +13,8 @@ Pizza.prototype.price = function() {
     }
     this.cost = cost;
 }
+
+function Order(pizzas, total) {
+    this.pizzas = pizzas;
+    this.total = total;
+}
