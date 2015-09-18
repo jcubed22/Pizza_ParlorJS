@@ -34,6 +34,7 @@ Order.prototype.addPizza = function(pizza) {
 }
 
 $(document).ready(function() {
+    /* Removes the required attribute from checkboxes when one box has been checked */
     var requiredCheckboxes = $(':checkbox[required]');
 
     requiredCheckboxes.change(function(){
@@ -47,13 +48,26 @@ $(document).ready(function() {
 
     $("form#new-pizza").submit(function(event) {
         event.preventDefault();
-        var size = $("select#size").val();
+        var order = new Order();
+        var size = parseInt($("select#size").val());
+
+        /* Loops through all checked boxes and creates an array of their values */
         var toppings = [];
         $(':checkbox:checked').each(function(i){
           toppings[i] = $(this).val();
         });
-        var quantity = $("select#qty").val();
+
+        var quantity = parseInt($("select#qty").val());
+        var newPizza = new Pizza(size, toppings, quantity);
+
+        newPizza.price();
+        order.addPizza(newPizza);
+        order.orderTotal();
+
+        $("#show-order").show();
+        $(".pizza").text(newPizza.size + '" ' + newPizza.toppings.length + " topping x " + newPizza.quantity);
+        $(".total").text("$" + order.total);
+
+        $("form#new-pizza").trigger("reset");
     });
-
-
 });
