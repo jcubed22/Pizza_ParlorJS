@@ -12,3 +12,10 @@ describe('Pizza', function() {
         expect(testPizza.cost).to.equal(25);
     });
 });
+
+describe('Order', function() {
+    it("creates a new Order object", function() {
+        var testOrder = new Order();
+        expect(testOrder).to.be.an('object');
+    });
+});
