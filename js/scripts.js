@@ -48,9 +48,9 @@ $(document).ready(function() {
 
     $("form#new-pizza").submit(function(event) {
         event.preventDefault();
+
         var order = new Order();
         var size = parseInt($("select#size").val());
-
         /* Loops through all checked boxes and creates an array of their values */
         var toppings = [];
         $(':checkbox:checked').each(function(i){
