@@ -15,6 +15,6 @@ Pizza.prototype.price = function() {
 }
 
 function Order(pizzas, total) {
-    this.pizzas = pizzas;
+    this.pizzas = [];
     this.total = total;
 }

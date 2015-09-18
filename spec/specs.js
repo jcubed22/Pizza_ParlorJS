@@ -19,10 +19,10 @@ describe('Order', function() {
         expect(testOrder).to.be.an('object');
     });
 
-    it("adds pizza objects to an Order", function() {
+    it("adds orderTotal method to all Order objects", function() {
         var testOrder = new Order();
         var testPizza = new Pizza(10, ["pepperoni"], 1);
-        testOrder.addPizza();
-        expect(testOrder.pizzas).to.be.an('array');
+        var testPizza2 = new Pizza(12, ["pepperoni", "sausage"], 2);
+        expect(testOrder.orderTotal()).to.be.equal(35);
     });
 });
