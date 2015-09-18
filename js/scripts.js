@@ -12,9 +12,18 @@ Pizza.prototype.price = function() {
         var cost = this.size * this.quantity;
     }
     this.cost = cost;
+    return this.cost;
 }
 
 function Order(pizzas, total) {
     this.pizzas = [];
     this.total = total;
+}
+
+Order.prototype.orderTotal = function() {
+    var orderTotal = 0;
+    for (var pizza in this.pizzas) {
+        orderTotal += this.pizzas[pizza].price();
+    }
+    return orderTotal;
 }
