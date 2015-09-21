@@ -35,8 +35,13 @@ h2 {
 
 #rightdiv {
     transform: translateY(30%);
+    text-align: center;
 }
 
 #show-order {
+    display: none;
+}
+
+#show-total {
     display: none;
 }

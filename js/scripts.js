@@ -48,6 +48,8 @@ $(document).ready(function() {
 
     $("form#new-pizza").submit(function(event) {
         event.preventDefault();
+        $("#show-total").hide();
+        $("#order-total").show();
         var order = new Order();
         var size = parseInt($("select#size").val());
         /* Loops through all checked boxes and creates an array of their values */
@@ -62,13 +64,18 @@ $(document).ready(function() {
         newPizza.price();
         order.addPizza(newPizza);
         order.orderTotal();
-
         $("#show-order").show();
         $(".pizza").text(newPizza.size + '" ' + newPizza.toppings.length + " topping x " + newPizza.quantity);
-        $(".total").text("$" +  order.total);
 
+    $("#order-total").click(function(event) {
+        event.preventDefault();
+        $("#order-total").hide();
+        $("#show-total").show();
+        $(".total").text("$" +  order.total);
         /* Resets form when it is submitted and all checkboxes to required*/
         $("form#new-pizza").trigger("reset");
         requiredCheckboxes.attr('required', 'required');
+    });
+
     });
 });
