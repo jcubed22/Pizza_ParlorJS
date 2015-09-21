@@ -25,7 +25,7 @@ describe('Order', function() {
         var testPizza2 = new Pizza(12, ["pepperoni", "sausage"], 2);
         testOrder.pizzas.push(testPizza, testPizza2);
         testOrder.orderTotal();
-        expect(testOrder.total).to.equal(35);
+        expect(testOrder.total).to.equal('35.00');
     });
 
     it("adds orderTotal method to all Order objects", function() {
@@ -33,7 +33,7 @@ describe('Order', function() {
         var testPizza = new Pizza(12, ["pepperoni", "sausage", "mushroom", "olives", "bacon"], 3);
         testOrder.pizzas.push(testPizza);
         testOrder.orderTotal();
-        expect(testOrder.total).to.equal(42);
+        expect(testOrder.total).to.equal('42.00');
     });
 
     it("adds a pizza to the order", function() {
